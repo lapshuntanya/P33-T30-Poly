@@ -55,6 +55,7 @@ int main()
              p->setCost(p->getCost() + 100);
              cout << "\t New cost: " << p->getCost() << " UAH" << endl;
              cout << endl;
+
          }
     }
 
