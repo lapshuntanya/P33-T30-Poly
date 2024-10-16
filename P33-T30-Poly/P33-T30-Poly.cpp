@@ -1,7 +1,9 @@
-#include <iostream>
+#include "Employee.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Employee a("Saphonova Veronika", 15'000);
+    a.showInfo();
+    cout << "Total salary: " << a.calcSalary() << endl;
 }
 
