@@ -3,6 +3,7 @@
 #include "Manager.h"
 #include <typeinfo>
 #include <vector>
+#include <algorithm>
 
 int main()
 {
@@ -36,7 +37,7 @@ int main()
         cout << endl;
     }
     cout << "--------------------------------------------\n";
-    cout << "--------------------------------------------\n";
+   
     cout << "List of Managers:\n";
     for (int i = 0; i < itStep.size(); i++)
     {
@@ -55,15 +56,23 @@ int main()
              p->setCost(p->getCost() + 100);
              cout << "\t New cost: " << p->getCost() << " UAH" << endl;
              cout << endl;
-
          }
+    }
+    cout << "--------------------------------------------\n";
+    cout << "Sorting by total salary:\n\n";
+    sort(itStep.begin(), itStep.end(), [](Employee* a, Employee* b) {
+        return a->calcSalary() > b->calcSalary();
+        });
+
+    for (auto item: itStep) {
+        cout << item->getName() << " " << item->calcSalary() << "\n";
     }
 
     //-------------------------------------------------------
+    /*
     //clear
     for (int i = 3; i < itStep.size(); i++)  {
         delete itStep[i];
-    }
-
+    }*/
 }
 
