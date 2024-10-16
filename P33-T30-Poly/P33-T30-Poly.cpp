@@ -1,6 +1,7 @@
 #include "Employee.h"
 #include "Teacher.h"
 #include "Manager.h"
+#include <typeinfo>
 #include <vector>
 
 int main()
@@ -30,10 +31,31 @@ int main()
     itStep.push_back(new Teacher("Kovtun Kyrylo", 27'000, 10, 500));
     //-------------------------------------------------------
 
-    for (int i = 0; i < itStep.size(); i++)
-    {
+    for (int i = 0; i < itStep.size(); i++)    {
         itStep[i]->showInfo(); 
         cout << endl;
+    }
+    cout << "--------------------------------------------\n";
+    cout << "--------------------------------------------\n";
+    cout << "List of Managers:\n";
+    for (int i = 0; i < itStep.size(); i++)
+    {
+        if (typeid(*itStep[i]) == typeid(Manager)){
+            cout << "\t" << itStep[i]->getName() << endl;
+        }
+    }
+    cout << "--------------------------------------------\n";
+    cout << "Teachers:\n";
+    for (int i = 0; i < itStep.size(); i++)
+    {
+         Teacher* p = dynamic_cast<Teacher*>(itStep[i]);
+         if (p != nullptr) {
+             cout << "\t Name:     " << p->getName() << endl;
+             cout << "\t Old cost: " << p ->getCost() << " UAH" << endl;
+             p->setCost(p->getCost() + 100);
+             cout << "\t New cost: " << p->getCost() << " UAH" << endl;
+             cout << endl;
+         }
     }
 
     //-------------------------------------------------------
