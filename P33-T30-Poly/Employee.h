@@ -3,8 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class Employee
-{
+class Employee{
 protected:
 	string name;
 	float salary;
