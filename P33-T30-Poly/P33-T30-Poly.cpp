@@ -30,6 +30,12 @@ int main()
     itStep.push_back(new Teacher("Kovtun Kyrylo", 27'000, 10, 500));
     //-------------------------------------------------------
 
+    for (int i = 0; i < itStep.size(); i++)
+    {
+        itStep[i]->showInfo(); 
+        cout << endl;
+    }
+
     //-------------------------------------------------------
     //clear
     for (int i = 3; i < itStep.size(); i++)  {
